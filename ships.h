@@ -4,12 +4,18 @@
 
 #include <stdio.h>
 
-struct Ship {
+typedef struct {
 
+    char name[16];
     int size;
-    char name[15];
     char symbol;
-}
+} Ship;
+
+extern Ship battleship;
+extern Ship aircraft_carrier;
+extern Ship submarine;
+extern Ship cruiser;
+extern Ship destroyer;
 
 
 

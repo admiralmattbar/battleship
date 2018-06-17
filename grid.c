@@ -34,40 +34,38 @@ void printPlayerGrid()
 
 void placeShip(Ship ship, int orientation)
 {
+    int x_pos;
+    int y_pos;
     switch(orientation){
     
     case 0:
-	int x_pos;
-	int y_pos;
 
 	printf("Which column would you like to place your %s in?\n", ship.name);
 	scanf("%d\n", &x_pos);
-	if(x_pos + ship.length > ROW-1){
+	if(x_pos + ship.size > ROW-1){
 	    printf("Ship has to fit on the grid.\n");
 	    placeShip(ship, orientation);
 	} else {
 	    printf("Which row would you like to place your %s in?\n", ship.name);
 	    scanf("%d\n", &y_pos);
 	    int i;
-	    for(i=0; i < ship.length; i++){
+	    for(i=0; i < ship.size; i++){
 	        player_grid[y_pos + i][x_pos] = ship.symbol;
 	    }
 	}
     case 1:
-        int x_pos;
-	int y_pos;
 
 	printf("Which row would you like to place your %s in?\n", ship.name);
 	scanf("%d\n", &y_pos);
-	if(y_pos + ship.length > COLUMN-1){
+	if(y_pos + ship.size > COLUMN-1){
 	    printf("Ship has to fit on the grid.\n");
 	    placeShip(ship, orientation);
 	} else {
 	    printf("Which column would you like to place your %s in?\n", ship.name);
 	    scanf("%d\n", &x_pos);
 	    int i;
-	    for(i=0; i<ship.length; i++){
-	        player_grid[y_pos][x_pos + 1] = ship.symgol;
+	    for(i=0; i<ship.size; i++){
+	        player_grid[y_pos][x_pos + i] = ship.symbol;
 	    }
 	}
     }

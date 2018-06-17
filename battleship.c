@@ -4,7 +4,6 @@
 
 int main()
 {
-    Ship battleship;
     drawGrid();
     printPlayerGrid();
     placeShip(battleship, 0);
